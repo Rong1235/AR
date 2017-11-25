@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+
+	<head>
+		<title>user login</title>
+		<!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/> -->
+	</head>
+
+	<body>
+		<header th:fragment="header">
+			<img src="/images/logo.jpg" />
+			<nav bgcolor="#ffff66">
+			</nav>
+			<hr />
+		</header>
+		<div layout:fragment="content" class="container">
+		
+			
+			<form th:action="@{/login/login}" method="post"  th:object="${user}">
+
+				<span th:text="${errorMsg}" class="label label-danger"/> 
+
+				<div class="input-group">
+					<input type="text" th:field="*{name}" placeholder="用户名" th:class="${#fields.hasErrors('name')} ? fieldError" />
+					<ul>
+						<li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
+					</ul>
+				</div>
+
+				<div class="input-group">
+					<input type="password" th:field="*{password}"  placeholder="密码"  th:class="${#fields.hasErrors('password')} ? fieldError"  />
+					<ul>
+						<li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+					</ul>
+				</div>
+
+				<div class="input-group">
+					<input type="text" th:field="*{valicode}" name="valicode" placeholder="验证码" th:class="${#fields.hasErrors('valicode')}? fieldError" />
+					<img src="/login/captcha.jpg" />
+					<ul>
+						<li th:each="err : ${#fields.errors('valicode')}" th:text="${err}" />
+					</ul>
+				</div> 
+				
+
+				<div class="form-actions">
+					<input type="submit" value="Login" />
+				</div>
+			</form>
+		</div>
+
+	</body>
+
+</html>

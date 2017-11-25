@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>项目</title>
+</head>
+<body style="width:1024px;margin:auto">
+		
+		<h1 align="center" th:text="${operation} !='update'?'添加项目':'修改项目'"></h1>
+		<form action="/pro/projectForm" method="post" style="text-align:center" 
+			th:attr = "action=${operation}=='update'?'/pro/updateProject':'/pro/projectAdd'" th:object="${project}"	>
+			<input type="hidden" name="id"  th:value="${project.id}"  />		
+			<div>
+				<input type="text" name="name" required="required" 
+					placeholder="请输入项目名称" 
+					th:value = "${project.name}"/>
+			</div>
+			<div>
+				<input type="text" name="description" 
+					placeholder="请输入项目简介" 
+					th:value= "${project.description}"/>
+			</div>
+			<div>
+				<input type="reset" />
+				<input type="submit" value="添加项目" 
+					th:value="${operation}=='update'?'修改项目':'添加项目'"	/>
+			</div>
+		</form>
+		<div style="text-align:center; margin-top:20px;">	
+			<div th:if="${addResult} == 1" style="color:green;">Congraduation! 已成功添加项目</div>
+			<div th:if="${addResult} == 0" style="color:red;">Sorry! 添加项目失败</div>
+			<a href="/pro/projectList">返回项目列表页</a>
+		</div>
+		
+		
+		<div id="userGroup">
+		</div>
+	</body>
+</html>

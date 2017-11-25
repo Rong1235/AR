@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+
+	<head lang="en">
+
+		<title>test</title>
+	</head>
+
+	<body>
+		<div class="row" layout:fragment="content">
+			<h3 th:text="'登陆用户' + ${user?.name}"></h3>
+			<a href="/logout">注销</a>
+		</div>
+		<div style="width:300px; height:auto; float:left; display:inline" th:action="@{/menu/json}">
+			<p th:text=""></p>
+			
+			<ul id="example" class="filetree">
+			
+			
+				<li><span class="folder">Folder 1</span>
+					<ul>
+						<li><span class="file">Item 1.1</span></li>
+					</ul>
+				</li>
+				<li><span class="folder">Folder 2</span>
+					<ul>
+						<li><span class="folder">Subfolder 2.1</span>
+							<ul>
+								<li><span class="file">File 2.1.1</span></li>
+								<li><span class="file">File 2.1.2</span></li>
+							</ul>
+						</li>
+						<li><span class="file">File 2.2</span></li>
+					</ul>
+				</li>
+				<li class="closed"><span class="folder">Folder 3 (closed at start)</span>
+					<ul>
+						<li><span class="file">File 3.1</span></li>
+					</ul>
+				</li>
+				<li><span class="file">File 4</span></li>
+			</ul>
+		</div>
+		<div style="width:300px; height:auto; float:left; display:inline">
+ 			<iframe src="authManager/groupAuthManager.html" border="0" frameborder="0"></iframe>
+		</div> 
+	</body>
+
+</html>
