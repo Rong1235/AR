@@ -19,7 +19,7 @@ import lombok.Data;
 public class UserGroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")

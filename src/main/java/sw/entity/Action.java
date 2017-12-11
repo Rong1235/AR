@@ -17,7 +17,7 @@ import lombok.Data;
 public class Action {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	@NotNull
 	private String name;

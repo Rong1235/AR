@@ -1,16 +1,14 @@
 package sw.entity;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import lombok.Data;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 资产类型表
@@ -23,9 +21,11 @@ import lombok.Data;
 public class AssetType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;//序号
 	
 	@NotEmpty
-	private String name;
+	private String name;//资产类型名称
+	
+	private String importExcel;//导入excel时对应的工作表名称
 
 }

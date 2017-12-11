@@ -16,7 +16,7 @@ import lombok.Data;
 public class ProRef {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	@ManyToOne
 	@JoinColumn(name="project_id")
 	private Project project;

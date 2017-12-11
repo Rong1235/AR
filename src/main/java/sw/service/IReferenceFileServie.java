@@ -61,8 +61,5 @@ public interface IReferenceFileServie {
 	 */
 	public int deleteBatch(Integer[] refFileIds);
 	
-	
-	
-
 
 }

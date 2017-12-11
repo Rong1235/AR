@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -20,33 +21,43 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Data
 @Entity
 @Table(name = "t_asset")
+@ToString
 public class Asset {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;//序号
 	
 	@ManyToOne
 	@JoinColumn(name="project_id")
-	private Project project;
+	private Project project;//所属项目
 	
 	@ManyToOne
 	@JoinColumn(name="ass_typ_id")
-	private AssetType assetType;
+	private AssetType assetType;//资产类型
 	
 	@NotEmpty
-	private String name;
+	private String name;//资产名称
 	
-	private String principle;
+	private String principle;//负责人
 	
-	private String description;
+	private String description;//描述
 	
-	private float importance;
+	private Float importance;//重要性程度
 	
-	private String depart;
+	private String depart;//部门
 	
-	private String saveForm;
+	private String saveForm;//存储方式
 	
-	private String backupForm;
+	private String backupForm;//备份方式
 	
-	private String remark;
+	private String remark;//备注
+	
+	private String assetId;//硬件资产编号
+	
+	private Float integrity;//完整性
+	
+	private Float availability;//可用性
+	
+	private Float  confidentiality;//机密性
+
 }

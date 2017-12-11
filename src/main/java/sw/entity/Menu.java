@@ -24,7 +24,7 @@ import lombok.Data;
 public class Menu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	@NotNull
 	private String name;
@@ -33,7 +33,7 @@ public class Menu {
 	
 //	@ManyToOne
 //	@JoinColumn(name="pid")
-	private int pid;
+	private Integer pid;
 	
 	public Menu(){
 		

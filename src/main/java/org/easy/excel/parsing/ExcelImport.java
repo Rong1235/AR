@@ -11,6 +11,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.easy.excel.ExcelDefinitionReader;
 import org.easy.excel.config.ExcelDefinition;
 import org.easy.excel.config.FieldValue;
@@ -105,25 +106,31 @@ public class ExcelImport extends AbstractExcelResolver{
 		//读取数据的总共次数
 		int totalNum = rowNum - titleIndex;
 		int startRow =  -titleIndex;
+		List<CellRangeAddress> mergedRegions = sheet.getMergedRegions();
 		List<T> listBean = new ArrayList<T>(totalNum);
 		for (int i = titleIndex+1; i <= rowNum; i++) {
 			Row row = sheet.getRow(i);
-			Object bean = readRow(errors,excelDefinition,row,titles,startRow+i,multivalidate);
+			Object bean = readRow(errors,excelDefinition,row,titles,startRow+i,multivalidate,mergedRegions,sheet);
 			listBean.add((T) bean);
 		}
 		return listBean;
 	}
 	
+	
 	/**
-	 * 读取1行
+	 * 
+	 * @param errors
 	 * @param excelDefinition
 	 * @param row
-	 * @param titles
+	 * @param titles 
 	 * @param rowNum 第几行
+	 * @param multivalidate 验证
+	 * @param mergedRegions 合并单元格集合
+	 * @param sheet 工作表
 	 * @return
 	 * @throws Exception
 	 */
-	protected Object readRow(List<ExcelError> errors,ExcelDefinition excelDefinition, Row row, List<String> titles,int rowNum,boolean multivalidate) throws Exception {
+	protected Object readRow(List<ExcelError> errors,ExcelDefinition excelDefinition, Row row, List<String> titles,int rowNum,boolean multivalidate,List<CellRangeAddress> mergedRegions,Sheet sheet) throws Exception {
 		//创建注册时配置的bean类型
 		Object bean = ReflectUtil.newInstance(excelDefinition.getClazz());
 		for(FieldValue fieldValue:excelDefinition.getFieldValues()){
@@ -134,16 +141,31 @@ public class ExcelImport extends AbstractExcelResolver{
 						Cell cell = row.getCell(j);
 						//获取Excel原生value值
 						Object value = getCellValue(cell);
-						//校验
-						validate(fieldValue, value, rowNum);
+						
 						if(value != null){
+							//校验
+							validate(fieldValue, value, rowNum);
 							if(value instanceof String){
 								//去除前后空格
 								value = value.toString().trim();
 							}
 							value = super.convert(bean,value, fieldValue, Type.IMPORT,rowNum);
 							ReflectUtil.setProperty(bean, fieldValue.getName(), value);
+						}else{//还存在可能是合并单元格的数据
+							for(CellRangeAddress r :mergedRegions){
+				                 if (rowNum > r.getFirstRow()&& rowNum<= r.getLastRow() && j >= r.getFirstColumn()  && j <= r.getLastColumn()) { 
+				                	 value =getCellValue(sheet.getRow(r.getFirstRow()).getCell(r.getFirstColumn()));
+				                	 validate(fieldValue, value, rowNum);
+				                	 if(value instanceof String){
+										//去除前后空格
+										value = value.toString().trim();
+									}
+									value = super.convert(bean,value, fieldValue, Type.IMPORT,rowNum);
+									ReflectUtil.setProperty(bean, fieldValue.getName(), value);
+				                 }
+							}
 						}
+						
 						break;
 					}catch(ExcelException e){
 						//应用multivalidate

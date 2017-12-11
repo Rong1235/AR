@@ -40,6 +40,20 @@ public interface IAssetService {
 	 */
 	public Integer deleteBatch(Integer[] assetIds);
 	
+	/**
+	 * excel 导入
+	 * @return
+	 * @throws Exception 
+	 */
+	public Integer importExcel(String filePath,Integer projectId) throws Exception;
 	
+	/**
+	 * 通过项目Id查找重要资产
+	 * @param projectId
+	 * @return
+	 */
+	public Map<String, List<Asset>> findImpProGroupByType(Integer projectId);
+	
+
 
 }

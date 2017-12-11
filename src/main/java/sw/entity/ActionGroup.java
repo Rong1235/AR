@@ -18,7 +18,7 @@ import lombok.Data;
 public class ActionGroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	@ManyToOne
 	@JoinColumn(name="action_id")
 	private Action action;

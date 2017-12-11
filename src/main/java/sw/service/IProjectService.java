@@ -14,7 +14,7 @@ public interface IProjectService {
 	 * @param id
 	 * @return
 	 */
-	List<Project> findCreateProjectByUserId(Integer id);
+	public List<Project> findCreateProjectByUserId(Integer id);
 
 	/**
 	 * 查找该用户参与的项目
@@ -22,11 +22,42 @@ public interface IProjectService {
 	 * @param id
 	 * @return
 	 */
-	Collection<MUserGroupProject> findJoinProjectByUserId(Integer id);
+	public Collection<MUserGroupProject> findJoinProjectByUserId(Integer id);
 
-	Project findById(Integer id);
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public  Project findById(Integer id);
 
-	int save(Project project);
+	/**
+	 * 保存项目
+	 * @param project
+	 * @return
+	 */
+	public  Project save(Project project);
+	
+	/**
+	 * 修改项目信息
+	 * @param project
+	 * @return
+	 */
+	public Project update(Project project);
 
-	int delete(Integer id);
+	/**
+	 * 删除项目
+	 * @param id
+	 * @return
+	 */
+	public int delete(Integer id);
+	
+	/**
+	 * 设置项目重要资产标准
+	 * @param id 项目Id 
+	 * @param importance 重要性标准
+	 * @return
+	 */
+	public Integer setImportance(Integer id,Float importance);
+
 }

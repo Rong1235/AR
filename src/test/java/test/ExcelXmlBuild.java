@@ -8,9 +8,9 @@ import org.apache.commons.lang.ArrayUtils;
 import org.easy.util.ReflectUtil;
 import org.springframework.util.TypeUtils;
 
-import test.model.AuthorModel;
-import test.model.BookModel;
-import test.model.StudentModel;
+import sw.entity.Asset;
+import sw.entity.AssetType;
+import sw.entity.Project;
 
 /**
  * 快速构建Excel配置,列多时敏捷开发使用
@@ -24,7 +24,7 @@ public class ExcelXmlBuild {
 	
 	//快速构建一个XML配置,看不懂直接运行
 	public static void main(String[] args) {
-		String xml = builderXml("student3", "学生信息列表", true, StudentModel.class,5000,BookModel.class,AuthorModel.class);
+		String xml = builderXml("Asset", "资产信息列表", true, Asset.class,5000,Project.class,AssetType.class);
 		System.out.println(xml);
 	}
 	

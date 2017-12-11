@@ -9,6 +9,7 @@ import java.util.List;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.easy.excel.ExcelContext;
 
+import sw.entity.Asset;
 import test.model.AuthorModel;
 import test.model.BookModel;
 import test.model.StudentModel;
@@ -16,11 +17,15 @@ import test.model.StudentModel;
 public class ExportTest {
 	public static void main(String[] args) throws Exception {
 		//准备excel输出流
-		OutputStream ops = new FileOutputStream("e:/exportStudent.xlsx");
+		OutputStream ops = new FileOutputStream("e:/资产列表.xlsx");
 		//创建excel上下文实例,它的构成需要配置文件的路径
-		ExcelContext context = new ExcelContext("e:/excel-config.xml");
+		ExcelContext context = new ExcelContext("../sw/src/main/resources/excelConfig/Asset.xml");
 		//获取POI创建结果
-		Workbook workbook = context.createExcel("student",getStudents());
+		List<Asset> lists = new ArrayList<Asset>();
+		Asset asset = new Asset();
+		asset.setAssetId("3");
+		lists.add(asset);
+		Workbook workbook = context.createExcel("Asset",lists);
 		workbook.write(ops);
 		ops.close();
 		workbook.close();

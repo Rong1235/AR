@@ -19,7 +19,7 @@ import lombok.Data;
 public class Group {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	@NotNull
 	private String name;

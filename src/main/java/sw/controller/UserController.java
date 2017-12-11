@@ -32,13 +32,13 @@ public class UserController {
 	@GetMapping("login")
 	public String showHomePage(Model model) {
 		model.addAttribute("user", new UserModel());
-		return "/pages/login"; // 返回index.html视图
+		return "/RA/login"; // 返回index.html视图
 	}
 	
 	@GetMapping("test")
 	public String showHomePage() {
 		
-		return "/pages/test"; // 返回index.html视图
+		return "/pages/fileUpload"; // 返回index.html视图
 	}
 
 	@GetMapping("/logout")
@@ -86,7 +86,7 @@ public class UserController {
 						+ error.getArguments() + "---"
 						+ error.getDefaultMessage());
 			}
-			return new ModelAndView("/pages/login");
+			return new ModelAndView("/RA/login");
 		}
 
 		Object captcha = session.getAttribute("captcha");
@@ -95,14 +95,14 @@ public class UserController {
 					user.getPassword());
 			if (userId != null) {
 				session.setAttribute(WebSecurityConfig.SESSION_KEY, userId);
-				return new ModelAndView("/pages/test", "user", user);
+				return new ModelAndView("/RA/index", "user", user);
 			} else {
 				model.addAttribute("errorMsg", "用户名或密码错误，请重试！");
 			}
 		} else {
 			model.addAttribute("errorMsg", "验证码出错！");
 		}
-		return new ModelAndView("/pages/login");
+		return new ModelAndView("/RA/login");
 	}
 
 }

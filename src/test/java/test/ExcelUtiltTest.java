@@ -13,7 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 public class ExcelUtiltTest {
 	public static void main(String[] args) throws Exception {
 		
-		ClassPathResource resource = new ClassPathResource("/upload/test-excel.xlsx");
+		ClassPathResource resource = new ClassPathResource("/upload/资产列表.xlsx");
 		List<List<Object>> list = ExcelUtil.readExcel(resource.getInputStream(), 0);
 		for (int i = 0; i < list.size(); i++) {
 			// 获取每一行

@@ -65,12 +65,10 @@ public class ProjectServiceImpl implements IProjectService {
 		return projectDao.findOne(id);
 	}
 	@Override
-	public int save(Project project) {
-			project.setCreateDate(new Date());
+	public Project save(Project project) {
+		project.setCreateDate(new Date());
 		 Project pro = projectDao.save(project);
-		 
-		 if(pro != null) return 1;
-		return 0;
+		return pro;
 	}
 	
 	public int delete(Integer id) {
@@ -83,4 +81,21 @@ public class ProjectServiceImpl implements IProjectService {
 		}
 		return 1;
 	}	
+	
+	@Override
+	public Integer setImportance(Integer id, Float importance) {
+		if(null == id) return null;
+		Project project = projectDao.findOne(id);
+		project.setImpStandard(importance);
+		projectDao.save(project);
+		return 0;
+	}
+	
+	@Override
+	public Project update(Project project) {
+		Project pro = projectDao.save(project);
+		return pro;
+	}
+	
+
 }

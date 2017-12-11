@@ -1,8 +1,5 @@
 package sw.service;
 
-import java.util.List;
-import java.util.Map;
-
 import sw.model.MMenu;
 
 public interface ILeftMenuService {

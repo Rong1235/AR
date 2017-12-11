@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 资产解析对应字段 -->
+<excels>
+	<excel id="HardwareAssets" class="sw.entity.Asset" sheetname="硬件资产"
+		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
+		sheetIndex="0">
+		<field name="assetId" title="资产编号" isNull="false" />
+		<field name="name" title="资产名称" isNull="false" />
+		<field name="principle" title="负责人" isNull="false" />
+		<field name="description" title="应用描述" />
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="depart" title="部门" />
+		<field name="remark" title="备注" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+	<excel id="FileAndData" class="sw.entity.Asset" sheetname="文档与数据"
+		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
+		sheetIndex="1">
+		<field name="name" title="资产名称" isNull="false" />
+		<field name="principle" title="负责人" isNull="false" />
+		<field name="description" title="应用描述" />
+		<field name="saveForm" title="存储方式"/>
+		<field name="backupForm" title="备份方式"/>
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="depart" title="部门" />
+		<field name="remark" title="备注" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+	<excel id="HumanResources" class="sw.entity.Asset" sheetname="人力资源"
+		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
+		sheetIndex="2">
+		<field name="name" title="岗位" isNull="false" />
+		<field name="description" title="岗位描述" />
+		<field name="principle" title="姓名"/>
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="remark" title="备注" />
+		<field name="depart" title="部门" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+	<excel id="software" class="sw.entity.Asset" sheetname="业务应用"
+		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
+		sheetIndex="3">
+		<field name="name" title="资产名称" isNull="false" />
+		<field name="description" title="使用范围描述" />
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="depart" title="部门" />
+		<field name="remark" title="备注" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+	<excel id="PhysicalEnvironment" class="sw.entity.Asset"
+		sheetname="物理环境" defaultColumnWidth="5000" enableStyle="true"
+		defaultAlign="center" sheetIndex="4">
+		<field name="name" title="资产名称" isNull="false" />
+		<field name="description" title="使用范围描述" />
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="depart" title="部门" />
+		<field name="remark" title="备注" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+	<excel id="Other" class="sw.entity.Asset" sheetname="其他"
+		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
+		sheetIndex="5">
+		<field name="name" title="资产名称" isNull="false" />
+		<field name="principle" title="负责人" isNull="false" />
+		<field name="description" title="应用描述" />
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="depart" title="部门" />
+		<field name="remark" title="备注" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+</excels>

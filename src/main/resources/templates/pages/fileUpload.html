@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Insert title here</title>
+	</head>
+
+	<body>
+		<form th:action="@{/upload}" method="POST" enctype="multipart/form-data"  >
+				<input type="file" name="file" />
+				<input type="submit" value="上传" /> 
+		</form>
+	</body>
+</html>
