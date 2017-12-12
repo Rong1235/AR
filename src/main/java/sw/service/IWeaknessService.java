@@ -1,6 +1,6 @@
 package sw.service;
 
-public interface IWeeknessService {
+public interface IWeaknessService {
 
 	/**
 	 * 通过项目查找所有的脆弱性

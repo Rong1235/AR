@@ -25,6 +25,6 @@ public class Weekness {
 	
 	@ManyToOne
 	@JoinColumn(name="thread_id")
-	private Thread thread;//所属威胁
+	private Threat thread;//所属威胁
 
 }

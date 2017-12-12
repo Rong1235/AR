@@ -3,7 +3,9 @@ package sw.model;
 import java.util.List;
 
 import lombok.Data;
+import sw.entity.Asset;
 import sw.entity.Project;
+import sw.entity.Threat;
 
 /**
  * 资产model
@@ -30,5 +32,12 @@ public class MAsset {
 	private Float availability;//可用性
 	private Float  confidentiality;//机密性
 	private List<MThread> thread;
+
+	public MAsset(Asset asset, List<Threat> threaList) {
+		this.id = asset.getId();
+		this.name = asset.getName();
+	}
+
+
 
 }

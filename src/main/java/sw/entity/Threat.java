@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "t_thread")
-public class Thread {
+public class Threat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
