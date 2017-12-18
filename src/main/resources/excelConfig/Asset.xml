@@ -46,7 +46,7 @@
 		<field name="availability" title="可用性" />
 		<field name="confidentiality" title="机密性" />
 	</excel>
-	<excel id="software" class="sw.entity.Asset" sheetname="业务应用"
+	<excel id="Software" class="sw.entity.Asset" sheetname="业务应用"
 		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
 		sheetIndex="3">
 		<field name="name" title="资产名称" isNull="false" />

@@ -12,6 +12,7 @@ import org.easy.excel.ExcelContext;
 import org.easy.excel.parsing.ExcelError;
 import org.easy.excel.result.ExcelImportResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import sw.dao.AssetDao;
@@ -33,6 +34,8 @@ public class AssetServiceImpl implements IAssetService {
 	
 	@Autowired
 	private ProjectDao projectDao;
+	
+
 	
 	@Override
 	public Map<String, List<Asset>> findByprojectIdGroupByType(Integer projectId) {
@@ -62,21 +65,25 @@ public class AssetServiceImpl implements IAssetService {
 		}
 		Project project = projectDao.findOne(projectId);
 		List<Asset> assetList = new ArrayList<Asset>();
-		InputStream excelStream = new FileInputStream(filePath);
+		
 		//创建excel上下文实例,它的构成需要配置文件的路径
 		ExcelContext context = new ExcelContext("../sw/src/main/resources/excelConfig/Asset.xml");
 		for(AssetType assetType :types){
+			InputStream excelStream = new FileInputStream(filePath);
 			ExcelImportResult result = context.readExcel(assetType.getImportExcel(), 0, excelStream,true);
+			//ExcelImportResult result = context.readExcel("FileAndData", 0, excelStream,true);
 			if(result.hasErrors()){//导入文件出错
 				throw new RuntimeException("数据导入出现错误"+result.getErrors());
 			}
 			
 			List<Asset> assets = result.getListBean();
+			if(null == assets || assets.size()==0) continue;
 			for(Asset asset:assets){
 				asset.setProject(project);
 				asset.setAssetType(assetType);
+				assetList.add(asset);
 			}
-			assetList.addAll(assets);
+			
 		}
 		assetDao.save(assetList);
 		return 0;

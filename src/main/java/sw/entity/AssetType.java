@@ -27,5 +27,7 @@ public class AssetType {
 	private String name;//资产类型名称
 	
 	private String importExcel;//导入excel时对应的工作表名称
+	
+	//private Integer sheetIndex;//工作表
 
 }
