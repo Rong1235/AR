@@ -7,8 +7,8 @@
 		<title>RA-网络安全风险评估系统</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
 		<link href="/css/style.css" rel="stylesheet" />
 		<link href="/css/add-ons.min.css" rel="stylesheet" />
@@ -32,7 +32,7 @@
 										<img src="/images/logo.png" class="img-responsive" alt="" style="height:76px" />
 										<h4 style="margin-top:-20px;font-size:30px">登&nbsp;&nbsp;&nbsp;录</h4>
 									</div>
-									<form class="form-horizontal login" th:action="@{/login/login}" method="post" th:object="${user}">
+									<form class="form-horizontal login" th:action="@{/login}" method="post" th:object="${user}">
 										<div class="bk-padding-left-20 bk-padding-right-20">
 											<div class="form-group">
 												<div class="input-group input-group-icon">
@@ -61,12 +61,14 @@
 												</div>
 											</div>
 
-											<div class="input-group">
-												<input type="text" th:field="*{valicode}" name="valicode" placeholder="验证码" th:class="${#fields.hasErrors('valicode')}? fieldError" />
-												<img src="/login/captcha.jpg" />
-												<ul>
-													<li th:each="err : ${#fields.errors('valicode')}" th:text="${err}" />
-												</ul>
+											<div class="form-group">
+												<div class="input-group input-group-icon">
+													<input type="text" class="form-control bk-radius" th:field="*{valicode}" name="valicode" placeholder="验证码" /><!-- th:class="${#fields.hasErrors('valicode')}? fieldError" /> -->
+													<img src="/login/captcha.jpg" />
+													<ul>
+														<li th:each="err : ${#fields.errors('valicode')}" th:text="${err}" />
+													</ul>
+												</div>
 											</div>
 											<div class="row bk-margin-top-20 bk-margin-bottom-10">
 												<div class="col-sm-8">

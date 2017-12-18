@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 重要资产导出对应字段 -->
+<excels>
+	<excel id="impAssets" class="sw.entity.Asset" sheetname="硬件资产"
+		defaultColumnWidth="5000" enableStyle="true" defaultAlign="center"
+		sheetIndex="0">
+		<field name="assetId" title="资产编号" isNull="false" />
+		<field name="name" title="资产名称" isNull="false" />
+		<field name="principle" title="负责人" isNull="false" />
+		<field name="description" title="应用描述" />
+		<field name="importance" title="重要性程度" egex="^[1-9]\d*$"
+			regexErrMsg="必须是数字" isNull="false" />
+		<field name="depart" title="部门" />
+		<field name="remark" title="备注" />
+		<field name="integrity" title="完整性" />
+		<field name="availability" title="可用性" />
+		<field name="confidentiality" title="机密性" />
+	</excel>
+</excels>

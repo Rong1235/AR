@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+    	<meta charset="UTF-8" />
+		<title>RA-网络安全风险评估系统</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+		<link href="css/jquery.mmenu.css" rel="stylesheet" />
+		
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/add-ons.min.css" rel="stylesheet" />
+		
+		<style type="text/css">
+			html, body, .mm-page, .mm-page .content,
+			.mm-page .content .row, #iframeDiv, #iframeDiv iframe{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				
+			}
+			#iframeDiv{
+				padding: 140px 37px 38px 278px;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="navbar" role="navigation">
+			<div class="container-fluid container-nav">
+				<div class="navbar-right">					
+					<div class="userbox">
+						<a href="login.html"><span class="name">登出系统</span></a>
+					</div>
+				</div>
+			</div>		
+		</div>
+		
+		<div class="container-fluid content">	
+			<div class="page-header">
+				<div class="pull-left">
+					<ol class="breadcrumb visible-sm visible-md visible-lg">								
+						<li><a href="index.html"><i class="icon fa fa-home"></i>首页</a></li>
+						<li id="pageName">项目信息</li>
+					</ol>						
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="sidebar">
+					<div class="sidebar-collapse">
+						<div class="sidebar-header">
+							<img src="img/logo.png" class="img-responsive" alt="" />
+						</div>
+						<div style="overflow-y: scroll;overflow-x:hidden;width: 270px;">					
+							<nav id="menu" class="nav-main" role="navigation">
+								<ul class="nav nav-sidebar">
+									<li>
+										<a onclick="javascript:document.getElementById('pageName').innerText = '项目信息';
+											document.getElementById('iframe').src='project.html';return false;">
+											<i class="fa fa-laptop" aria-hidden="true"></i><span>项目信息</span>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:document.getElementById('pageName').innerText = '文件导入';
+											document.getElementById('iframe').src='fileUpload.html'; return false;">
+											<i class="fa fa-upload" aria-hidden="true"></i><span>文件导入</span>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:document.getElementById('pageName').innerText = '资产管理';
+											document.getElementById('iframe').src='tableEditable.html';return false;">
+											<i class="fa fa-table" aria-hidden="true"></i><span>资产管理</span>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:document.getElementById('pageName').innerText = '脆弱性管理';
+											document.getElementById('iframe').src='tableEditable.html'; return false;">
+											<i class="fa fa-table" aria-hidden="true"></i><span>脆弱性管理</span>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:document.getElementById('pageName').innerText = '威胁管理';
+											document.getElementById('iframe').src='tableEditable.html'; return false;">
+											<i class="fa fa-table" aria-hidden="true"></i><span>威胁管理</span>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:document.getElementById('pageName').innerText = '综合分析';
+											document.getElementById('iframe').src='result.html'; return false;">
+											<i class="fa fa-bar-chart-o" aria-hidden="true"></i><span>综合分析</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<div class="sidebar-footer" style="display: none;"></div>
+				</div>
+				
+				<div id="iframeDiv">
+					<iframe id='iframe' src="project.html" frameborder="no" border="0" scrolling="yes" allowtransparency="yes"></iframe>
+				</div>
+			</div>
+		</div>
+	
+		<script src="vendor/js/jquery-2.1.1.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		
+		<script src="js/jquery.mmenu.min.js"></script>
+		<script src="js/core.min.js"></script>
+	</body>
+</html>

@@ -1,9 +1,7 @@
 package sw.model;
 
-import java.util.List;
-
-import sw.entity.RiskLevel;
 import lombok.Data;
+import sw.entity.RiskLevel;
 
 @Data
 public class MWeakness {

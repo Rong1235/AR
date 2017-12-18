@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+    	<meta charset="UTF-8" />
+		<title>RA-网络安全风险评估系统</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		
+		<link href="plugins/select2/select2.css" rel="stylesheet" />
+		
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/add-ons.min.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+	
+		<div class="container-fluid content">	
+			<div class="row">
+				
+				<div class="sidebar-minified">			
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="panel panel-default bk-bg-white">
+								<div class="panel-heading bk-bg-white">
+									<h6><i class="fa fa-table red"></i><span class="break"></span>Default</h6>							
+									<div class="panel-actions">
+										<a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+										<a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+									</div>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="bk-margin-bottom-10">
+												<button id="addToTable" class="btn btn-info">Add <i class="fa fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<table class="table table-bordered table-striped mb-none" id="datatable-editable">
+										<thead>
+											<tr>
+												<th>Template</th>
+												<th>Browser</th>
+												<th>Platform(s)</th>
+												<th>Platform(s)</th>
+												<th>Platform(s)</th>
+												<th>Actions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="gradeA">
+												<td>Prestashop</td>
+												<td>Safari</td>
+												<td>Nintendo DS</td>
+												<td>Nintendo DS</td>
+												<td>Nintendo DS</td>
+												<td class="actions">
+													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												</td>
+											</tr>
+											<tr class="gradeC">
+												<td>Jomla</td>
+												<td>Safari 2.0</td>
+												<td>Safari 2.0</td>
+												<td>Safari 2.0</td>
+												<td>KDE 3.1</td>
+												<td class="actions">
+													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												</td>
+											</tr>
+											<tr class="gradeA">
+												<td>Jomla</td>
+												<td>Safari 2.0</td>
+												<td>Safari 2.0</td>
+												<td>Safari 2.0</td>
+												<td>KDE 3.3</td>
+												<td class="actions">
+													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												</td>
+											</tr>
+											<tr class="gradeA">
+												<td>Jomla</td>
+												<td>Jomla</td>
+												<td>Jomla</td>
+												<td>Safari 2.0</td>
+												<td>KDE 3.5</td>
+												<td class="actions">
+													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>					   
+				</div>
+		
+			</div>
+		</div>
+		<div class="clearfix"></div>		
+		
+		<script src="vendor/js/jquery-2.1.1.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<script src="plugins/select2/select2.js"></script>				
+		<script src="plugins/jquery-datatables/media/js/jquery.dataTables.js"></script>
+		<script src="plugins/jquery-datatables-bs3/js/datatables.js"></script>
+		
+		<script src="js/jquery.mmenu.min.js"></script>
+		<script src="js/core.min.js"></script>
+		
+		<script src="js/table-editable.js"></script>
+	</body>
+</html>

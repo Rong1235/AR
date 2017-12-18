@@ -14,9 +14,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import sw.interceptor.WebSecurityConfig;
 import sw.model.UserModel;
@@ -35,9 +37,9 @@ public class UserController {
 		return "/RA/login"; // 返回index.html视图
 	}
 	
+	
 	@GetMapping("test")
 	public String showHomePage() {
-		
 		return "/pages/fileUpload"; // 返回index.html视图
 	}
 
@@ -68,16 +70,15 @@ public class UserController {
 
 	/**
 	 * 登陆认证
-	 * 
 	 * @param user
 	 * @param bindingResult
 	 * @param model
 	 * @param session
 	 * @return
 	 */
-	@RequestMapping(value = "/login/login", method = RequestMethod.POST)
+	 @PostMapping("/login")
 	public ModelAndView login(@ModelAttribute("user") @Valid UserModel user,
-			BindingResult bindingResult, Model model, HttpSession session) {
+			BindingResult bindingResult, Model model, HttpSession session,RedirectAttributes attrs) {
 
 		if (bindingResult.hasErrors()) {
 			List<ObjectError> list = bindingResult.getAllErrors();

@@ -1,54 +1,85 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+<html lang="en">
 
 	<head>
-		<title>user login</title>
-		<!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/> -->
+	
+    	<meta charset="UTF-8" />
+		<title>RA-网络安全风险评估系统</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/add-ons.min.css" rel="stylesheet" />
+		
+		<style>
+			footer {
+				display: none;
+			}
+		</style>
 	</head>
 
 	<body>
-		<header th:fragment="header">
-			<img src="/images/logo.jpg" />
-			<nav bgcolor="#ffff66">
-			</nav>
-			<hr />
-		</header>
-		<div layout:fragment="content" class="container">
-		
-			
-			<form th:action="@{/login/login}" method="post"  th:object="${user}">
-
-				<span th:text="${errorMsg}" class="label label-danger"/> 
-
-				<div class="input-group">
-					<input type="text" th:field="*{name}" placeholder="用户名" th:class="${#fields.hasErrors('name')} ? fieldError" />
-					<ul>
-						<li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
-					</ul>
+		<div class="container-fluid content">
+			<div class="row">
+				<div id="content" class="col-sm-12 full">
+					<div class="row">
+						<div class="login-box" style="margin-top: 86px;">
+							<div class="panel">
+								<div class="panel-body">								
+									<div class="header bk-margin-bottom-20 text-center">										
+										<img src="img/logo.png" class="img-responsive" alt="" style="height:76px"/>
+										<h4 style="margin-top:-20px;font-size:30px">登&nbsp;&nbsp;&nbsp;录</h4>
+									</div>		
+									<form class="form-horizontal login" action="index.html" method="post">
+										<div class="bk-padding-left-20 bk-padding-right-20">
+											<div class="form-group">
+												<div class="input-group input-group-icon">
+													<input type="text" class="form-control bk-radius" id="username" placeholder="用户名称"/>
+													<span class="input-group-addon">
+														<span class="icon">
+															<i class="fa fa-user"></i>
+														</span>
+													</span>
+												</div>
+											</div>											
+											<div class="form-group">
+												<div class="input-group input-group-icon">
+													<input type="password" class="form-control bk-radius" id="password" placeholder="密码"/>
+													<span class="input-group-addon">
+														<span class="icon">
+															<i class="fa fa-key"></i>
+														</span>
+													</span>
+												</div>
+											</div>
+											<div class="row bk-margin-top-20 bk-margin-bottom-10">
+												<div class="col-sm-8">
+													<div class="checkbox-custom checkbox-default">
+														<a  class="text-center" href="register.html" style="color:#428bca">注册</a>
+													</div>
+												</div>
+												<div class="col-sm-4 text-right">
+													<button class="btn btn-primary hidden-xs" 
+														onclick="javascript:window.location.href = 'index.html';return false;">登录</button>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>			
 				</div>
-
-				<div class="input-group">
-					<input type="password" th:field="*{password}"  placeholder="密码"  th:class="${#fields.hasErrors('password')} ? fieldError"  />
-					<ul>
-						<li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
-					</ul>
-				</div>
-
-				<div class="input-group">
-					<input type="text" th:field="*{valicode}" name="valicode" placeholder="验证码" th:class="${#fields.hasErrors('valicode')}? fieldError" />
-					<img src="/login/captcha.jpg" />
-					<ul>
-						<li th:each="err : ${#fields.errors('valicode')}" th:text="${err}" />
-					</ul>
-				</div> 
-				
-
-				<div class="form-actions">
-					<input type="submit" value="Login" />
-				</div>
-			</form>
+			</div>
 		</div>
-
+		
+		<script src="vendor/js/jquery-2.1.1.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="plugins/bootkit/js/bootkit.js"></script>
+		<script src="js/jquery.mmenu.min.js"></script>
+		<script src="js/page-login.js"></script>
+		
 	</body>
-
 </html>

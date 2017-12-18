@@ -7,8 +7,9 @@
 	</head>
 
 	<body>
-		<form th:action="@{/upload}" method="POST" enctype="multipart/form-data"  >
+		<form th:action="@{/ass/importExcel}" method="POST" enctype="multipart/form-data"  >
 				<input type="file" name="file" />
+				<input type="text" name="projectId" value="2"/>
 				<input type="submit" value="上传" /> 
 		</form>
 	</body>
