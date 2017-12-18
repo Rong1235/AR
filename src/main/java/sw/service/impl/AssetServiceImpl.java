@@ -67,7 +67,7 @@ public class AssetServiceImpl implements IAssetService {
 		List<Asset> assetList = new ArrayList<Asset>();
 		
 		//创建excel上下文实例,它的构成需要配置文件的路径
-		ExcelContext context = new ExcelContext("../sw/src/main/resources/excelConfig/Asset.xml");
+		ExcelContext context = new ExcelContext("classpath:excelConfig/Asset.xml");
 		for(AssetType assetType :types){
 			InputStream excelStream = new FileInputStream(filePath);
 			ExcelImportResult result = context.readExcel(assetType.getImportExcel(), 0, excelStream,true);

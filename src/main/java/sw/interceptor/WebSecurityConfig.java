@@ -36,6 +36,12 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         // 拦截配置
         addInterceptor.addPathPatterns("/**");
     }
+    
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //将所有/static/** 访问都映射到classpath:/static/ 目录下
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+    }
      
 
     private class SecurityInterceptor extends HandlerInterceptorAdapter {
